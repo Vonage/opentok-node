@@ -420,6 +420,36 @@ opentok.forceDisconnect(sessionId, connectionId, function (error) {
 This is the server-side equivalent to the forceDisconnect() method in OpenTok.js:
 <https://www.tokbox.com/developer/guides/moderation/js/#force_disconnect>.
 
+### Force Mute a participant
+
+You can force mute participants from an OpenTok Session using the
+`OpenTok.forceMute(sessionId, streamId, callback)` method.
+
+```javascript
+opentok.forceMute(sessionId, streamId, function (error) {
+  if (error) return console.log("error:", error);
+});
+```
+
+### Force Mute All participants
+
+You can force mute all participants from an OpenTok Session using the
+`OpenTok.forceMuteAll(sessionId, excludedStreamIds, callback)` method.
+To mute all participants call forceMuteAll with out excludedStreamIds.
+To exclude streams from being muted use the excludedStreamIds.
+
+```javascript
+opentok.forceMuteAll(sessionId, excludedStreamIds, function (error) {
+  if (error) return console.log("error:", error);
+});
+```
+
+```javascript
+opentok.forceMuteAll(sessionId, null, function (error) {
+  if (error) return console.log("error:", error);
+});
+```
+
 ### Working with SIP Interconnect
 
 You can add an audio-only stream from an external third-party SIP gateway using the SIP Interconnect
