@@ -439,6 +439,7 @@ To mute all participants call forceMuteAll with out excludedStreamIds.
 To exclude streams from being muted use the excludedStreamIds.
 
 ```javascript
+const excludedStreamIds = ['stream1','stream2'];
 opentok.forceMuteAll(sessionId, excludedStreamIds, function (error) {
   if (error) return console.log("error:", error);
 });
