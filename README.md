@@ -434,7 +434,7 @@ opentok.forceMute(sessionId, streamId, function (error) {
 ### Force Mute All participants
 
 You can force mute all participants from an OpenTok Session using the
-`OpenTok.forceMuteAll(sessionId, excludedStreamIds, callback)` method.
+`openTok.forceMuteAll(sessionId, excludedStreamIds, callback)` method.
 To mute all participants call forceMuteAll with out excludedStreamIds.
 To exclude streams from being muted use the excludedStreamIds.
 
