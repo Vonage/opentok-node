@@ -423,7 +423,7 @@ This is the server-side equivalent to the forceDisconnect() method in OpenTok.js
 ### Force Mute a participant
 
 You can force mute participants from an OpenTok Session using the
-`OpenTok.forceMute(sessionId, streamId, callback)` method.
+`openTok.forceMute(sessionId, streamId, callback)` method.
 
 ```javascript
 opentok.forceMute(sessionId, streamId, function (error) {
