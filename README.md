@@ -420,10 +420,10 @@ opentok.forceDisconnect(sessionId, connectionId, function (error) {
 This is the server-side equivalent to the forceDisconnect() method in OpenTok.js:
 <https://www.tokbox.com/developer/guides/moderation/js/#force_disconnect>.
 
-### Force Mute a participant
+### Forcing a publisher to mute audio
 
-You can force mute participants from an OpenTok Session using the
-`openTok.forceMute(sessionId, streamId, callback)` method.
+You can force the publisher of a specified stream to mute its audio using the
+`OpenTok.forceMute(sessionId, streamId, callback)` method.
 
 ```javascript
 opentok.forceMute(sessionId, streamId, function (error) {
@@ -431,22 +431,26 @@ opentok.forceMute(sessionId, streamId, function (error) {
 });
 ```
 
-### Force Mute All participants
+### Forcing all participants in a session to mute audio
 
-You can force mute all participants from an OpenTok Session using the
+You can force all publishers in the session (except for those publishing
+excluded streams) to mute audio using the
 `openTok.forceMuteAll(sessionId, excludedStreamIds, callback)` method.
-To mute all participants call forceMuteAll with out excludedStreamIds.
-To exclude streams from being muted use the excludedStreamIds.
+
+To mute audio in all streams in the session, call the method without adding an
+`excludedStreamIds` parameter:
 
 ```javascript
-const excludedStreamIds = ['stream1','stream2'];
-opentok.forceMuteAll(sessionId, excludedStreamIds, function (error) {
+opentok.forceMuteAll(sessionId, null, function (error) {
   if (error) return console.log("error:", error);
 });
 ```
 
+To exclude streams from being muted, use the `excludedStreamIds` parameter:
+
 ```javascript
-opentok.forceMuteAll(sessionId, null, function (error) {
+const excludedStreamIds = ['stream1','stream2'];
+opentok.forceMuteAll(sessionId, excludedStreamIds, function (error) {
   if (error) return console.log("error:", error);
 });
 ```
